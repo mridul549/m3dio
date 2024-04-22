@@ -29,4 +29,5 @@ The main objective of the project is to convert a video file to audio file. The 
 - The notification picks up the uploaded mp3 message from the queue and informs the user via email of the same.
 - The notified user then requests the gateway to download the converted audio file from the database.
 
-
+## Deployment
+The project is deployed on AWS EC2 instance. It uses a minikube cluster to demonstrate a real k8s environment along with all the other required technologies.
