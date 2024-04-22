@@ -18,4 +18,7 @@ M3DIO is a robust microservices-based application designed to demonstrate a scal
 - **Kubernetes**: Used for automating deployment, scaling, and operations of application containers across clusters.
 - **GitHub Actions**: Implements CI/CD pipelines for automated integrations and deployments.
 
+## System Design
+<img width="910" alt="Screenshot 2024-04-22 at 9 35 04 PM" src="https://github.com/mridul549/m3dio/assets/94969636/32fd56b9-90f1-43aa-a9d4-a3da872cf365">
+
 
