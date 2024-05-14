@@ -2,9 +2,10 @@ import pika, sys, os, time
 from pymongo import MongoClient
 import gridfs
 from convert import to_mp3
+from dotenv import load_dotenv
 
 def main():
-    client = MongoClient("mongodb+srv://mridul0917:sFj6gb7G1Duu4UW5@cluster0.i9bhs8y.mongodb.net/")
+    client = MongoClient(os.environ.get("MONGODB_URI"))
     db_videos = client.videos
     db_mp3s = client.mp3s
 

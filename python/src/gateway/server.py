@@ -5,11 +5,12 @@ from auth import validate
 from auth_svc import access
 from storage import util
 from bson.objectid import ObjectId
+from dotenv import load_dotenv
 
 server = Flask(__name__)
 
-mongo_video = PyMongo(server, uri="mongodb+srv://mridul0917:sFj6gb7G1Duu4UW5@cluster0.i9bhs8y.mongodb.net/videos")
-mongo_mp3 = PyMongo(server, uri="mongodb+srv://mridul0917:sFj6gb7G1Duu4UW5@cluster0.i9bhs8y.mongodb.net/mp3s")
+mongo_video = PyMongo(server, uri=f"{os.environ.get('MONGODB_URI')}/videos")
+mongo_mp3 = PyMongo(server, uri=f"{os.environ.get('MONGODB_URI')}/mp3s")
 
 fs_videos = gridfs.GridFS(mongo_video.db)
 fs_mp3s = gridfs.GridFS(mongo_mp3.db)
