@@ -2,8 +2,6 @@ import pika, sys, os, time
 from send import email
 import logging
 
-logging.info("Hi")
-
 def main():
     # rabbitmq connection
     connection = pika.BlockingConnection(pika.ConnectionParameters(host="rabbitmq"))
@@ -17,7 +15,6 @@ def main():
             ch.basic_ack(delivery_tag=method.delivery_tag)
         logging.info(err)
         
-    logging.info("Hellow from noti 5")
     channel.basic_consume(
         queue=os.environ.get("MP3_QUEUE"), on_message_callback=callback
     )

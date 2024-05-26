@@ -3,10 +3,13 @@ kind: Service
 metadata: 
   name: auth
 spec: 
+  # specifies which pods fall under this service, selects pods based on the labels
   selector:
     app: auth
+  # service only reachable from within the cluster
   type: ClusterIP
   ports:
+    # the service listens on port 5000, when accessed within the cluster
     - port: 5000
-      targetPort: 5000
+      targetPort: 5000 # the port of the pods or containers the service routes to
       protocol: TCP

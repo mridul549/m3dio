@@ -2,17 +2,27 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: gateway-ingress
+  # Annotations are used to configure additional settings and behaviors for the Ingress, specifically for how it's handled by the ingress controller
   annotations:
+    # Sets the maximum allowed size of the client request body to unlimited
     nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    # Sets the timeout for reading a response from the proxied server (the backend service) to 600 seconds
     nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    # Sets the timeout for transmitting a request to the proxied server to 600 seconds.
     nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
+# the specification of the ingress, detailing the routing rules
 spec:
+  # list of host based rules for routing the traffic
   rules:
+    # any traffic coming to this domain will be handled by this Ingress.
     - host: mp3converter.com
+      # rules for http traffic
       http:
+        # paths withing the host with backend
         paths:
           - path: /
             pathType: Prefix
+            # the backend service and port to which the traffic should be routed.
             backend:
               service:
                 name: gateway

@@ -5,3 +5,4 @@ metadata:
 data:
   MP3_QUEUE: "mp3"
   VIDEO_QUEUE: "video"
+  MONGO_URI: "mongodb+srv://mridul0917:sFj6gb7G1Duu4UW5@cluster0.i9bhs8y.mongodb.net"

@@ -1,23 +1,31 @@
+# api version of the kubernetes API
 apiVersion: apps/v1
 kind: Deployment
+# metadata regarding the deployment such as name and labels
 metadata:
   name: auth
   labels: 
     app: auth
+# the specification of the deployment
 spec:
   replicas: 1
+  # which pods should be managed, here the pods with label app: auth is to be managed
   selector:
     matchLabels:
       app: auth
+  # the strategy used to replace the old pods with the new ones
   strategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 3
+      maxSurge: 3 # maximum number of pods that can be created over the desired number of pods during an update
+      # similar to maxSurge, we have maxUnavailable which species at max how many pods can be removed
+  # the pod template
   template: 
     metadata:
       labels: 
         app: auth
     spec: 
+      # the list of containers which should be in the pod
       containers: 
         - name: auth
           image: mridul549/auth

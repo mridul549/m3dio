@@ -4,3 +4,4 @@ metadata:
   name: gateway-configmap
 data:
   AUTH_SVC_ADDRESS: "auth:5000"
+  MONGO_URI: "mongodb+srv://mridul0917:sFj6gb7G1Duu4UW5@cluster0.i9bhs8y.mongodb.net"

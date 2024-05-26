@@ -11,6 +11,7 @@ spec:
       protocol: TCP
       port: 15672
       targetPort: 15672
+      # amqp: the primary messaging protocol used by RabbitMQ
     - name: amqp
       protocol: TCP
       port: 5672

@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: rabbitmq
 spec:
+  # makes the Service accessible from outside the cluster using a port allocated on each node
   type: NodePort
   selector:
     app: rabbitmq

@@ -1,16 +1,22 @@
 apiVersion: apps/v1
+# managing applications with persistent data.
 kind: StatefulSet
 metadata: 
   name: rabbitmq
 spec: 
+  # the name of the Service that governs this StatefulSet
   serviceName: "not-applicable"
+  # which pods the StatefulSet manages
   selector:
     matchLabels: 
       app: rabbitmq
+  # the pods that will be created and managed by the StatefulSet
   template:
+    # pods selector
     metadata:
       labels:
         app: rabbitmq
+    # specifications of the pods to be created
     spec: 
       containers:
         - name: rabbitmq
@@ -27,9 +33,13 @@ spec:
                 name: rabbitmq-configmap
             - secretRef:
                 name: rabbitmq-secret
+          # lists where the volumes are mounted inside the container
+          # The volumeMounts in the container use the name to reference a specific volumes entry defined at the pod level. This setup allows multiple containers within the same pod to share data if they mount the same volume.
           volumeMounts:   
             - mountPath: "/var/lib/rabbitmq" # the rabbitmq will store all the data in this location locally, to make the data persistent in case of pod crash
-              name: rabbitmq-volume
+              name: rabbitmq-volume # should be the same as the pod volume name to work correctly
+      # volumes that are attached to the pod
+      # volumes define what storage is available to a pod, and volumeMounts specify where this storage is accessible within each container of the pod. 
       volumes:
         - name: rabbitmq-volume
           persistentVolumeClaim: 

@@ -12,7 +12,6 @@ def token(request):
     if not token:
         return None, ("Missing token", 401)
     
-    print(f"{'AUTH_SVC_ADDRESS'}")
     response = requests.post(
         f"http://{os.environ.get('AUTH_SVC_ADDRESS')}/validate",
         headers={"Authorization": token},

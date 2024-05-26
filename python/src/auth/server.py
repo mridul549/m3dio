@@ -16,7 +16,6 @@ server.config["MYSQL_PORT"] = int(os.environ.get("MYSQL_PORT"))
 def login():
     auth = request.authorization
 
-    print(auth)
     if not auth:
         return "Missing credentials", 401
     
