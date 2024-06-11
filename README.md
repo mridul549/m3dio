@@ -13,7 +13,7 @@ This repository contains the source code for an MP4 to MP3 converter application
 - **MySQL**: Relational database for handling user authentication and other structured data.
 
 ## System Design
-![Screenshot 2024-05-18 at 11 01 07 AM](https://github.com/mridul549/m3dio/assets/94969636/7263b8aa-cd27-4701-b2c7-9d473c0124b9)
+![M3DIO](https://github.com/mridul549/m3dio/assets/94969636/a6b281c9-282f-4062-a7eb-b2ddb9678a6c)
 
 The system is designed with multiple microservices, each responsible for a specific functionality of the application. Below is an overview of the key components and their interactions:
 
