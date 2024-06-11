@@ -13,7 +13,7 @@ This repository contains the source code for an MP4 to MP3 converter application
 - **MySQL**: Relational database for handling user authentication and other structured data.
 
 ## System Design
-![M3DIO](https://github.com/mridul549/m3dio/assets/94969636/a6b281c9-282f-4062-a7eb-b2ddb9678a6c)
+![M3DIO](https://github.com/mridul549/m3dio/assets/94969636/8dbf7edd-d92a-4d43-8bfe-ea1065d4d9c7)
 
 The system is designed with multiple microservices, each responsible for a specific functionality of the application. Below is an overview of the key components and their interactions:
 
@@ -47,5 +47,5 @@ The system is designed with multiple microservices, each responsible for a speci
 
 7. **Kubernetes**:
    - Manages the deployment, scaling, and operations of containerized applications.
-   - Uses Kubernetes Ingress for routing and Kubernetes StatefulSet for managing stateful applications like the Converter Service.
+   - Uses Kubernetes Ingress for routing and Kubernetes StatefulSet for managing RabbitMQ.
 
